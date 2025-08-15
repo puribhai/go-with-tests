@@ -1,6 +1,4 @@
-package main
-
-import "fmt"
+package helloworld
 
 func Hello(str string, language string) string {
 
@@ -28,8 +26,4 @@ func GetPrefix(lang string) (prefix string) {
 	}
 	return
 
-}
-
-func main() {
-	fmt.Println(Hello("Hello ", "gg"))
 }
