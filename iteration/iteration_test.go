@@ -21,6 +21,12 @@ func TestRepeat(t *testing.T) {
 		assertRepeat(t, got, want)
 	})
 }
+
+func BenchmarkRepeat(b *testing.B) {
+	for b.Loop() {
+		Repeat("a")
+	}
+}
 func assertRepeat(t testing.TB, got, want string) {
 	t.Helper()
 	if got != want {
