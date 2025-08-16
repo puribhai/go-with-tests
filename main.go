@@ -3,9 +3,9 @@ package main
 import (
 	"fmt"
 
-	"github.com/puribhai/go-with-tests/helloworld"
+	"github.com/puribhai/go-with-tests/iteration"
 )
 
 func main() {
-	fmt.Println(helloworld.Hello("Hello ", "gg"))
+	fmt.Println(iteration.Repeat("anmol"))
 }
