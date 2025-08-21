@@ -30,9 +30,22 @@ func TestArrays(t *testing.T) {
 }
 
 func TestSumAll(t *testing.T) {
-	got := SumAll([]int{2, 4}, []int{3, 2, 1})
-	want := []int{6, 6}
-	if !reflect.DeepEqual(got, want) {
-		t.Errorf("got %v want %v", got, want)
+
+	checkSums := func(t testing.TB, got, want []int) {
+		t.Helper()
+		if !reflect.DeepEqual(got, want) {
+			t.Errorf("got %v want %v", got, want)
+		}
 	}
+	t.Run("check for some slices", func(t *testing.T) {
+		got := SumAll([]int{2, 4}, []int{3, 2, 1})
+		want := []int{6, 6}
+		checkSums(t, got, want)
+
+	})
+	t.Run("safely sum empty slices", func(t *testing.T) {
+		got := SumAll([]int{}, []int{3, 2, 1})
+		want := []int{0, 6}
+		checkSums(t, got, want)
+	})
 }
