@@ -26,9 +26,6 @@ jobs:
       - name: Download Go Modules
         run: go mod download
 
-      - name: 🔨 Build Project
-        run: go build -v ./...
-
       - name: 🧪 Run Unit Tests (with Race Detector)
         run: go test -v -race ./...
 
