@@ -32,6 +32,11 @@ func walk(x interface{}, fn func(input string)) {
 				break
 			}
 		}
+	case reflect.Func:
+		valFuncResult := val.Call(nil)
+		for _, res := range valFuncResult {
+			walk(res.Interface(), fn)
+		}
 	}
 }
 
